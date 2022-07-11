@@ -4,15 +4,13 @@ Ginesi et al. 2020, fig 22
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import rc
 
 from dmp.dmp import DMPs_cartesian as dmp_c
 from dmp.obstacle_superquadric import Obstacle_Static, Obstacle_Dynamic
-
+import snsplot
+snsplot.set()
 fs = 14
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],
-    'size':fs})
-rc('text', usetex=True)
+
 
 ## Setup
 # Parameters
@@ -41,7 +39,7 @@ print_err = False
 savefig = False
 savetraj = False
 
-saveframe = True
+saveframe = False
 
 # MP
 MP = dmp_c(n_dmps=2, x_0=x0, x_goal=xg, K=K, alpha_s=alpha)
@@ -154,8 +152,8 @@ plt.plot(x0[0], x0[1], '.k')
 plt.plot(xg[0], xg[1], '.k')
 plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
 plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+plt.xlabel(r'$x[m]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
 plt.axis('scaled')
 plt.xlim(-0.75, 0.75)
 if savefig:
@@ -166,13 +164,13 @@ plt.subplot(211)
 plt.plot(t_static, x_track_static[:, 0], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 0], '--b')
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
-plt.ylabel(r'$x[\texttt{m}]$', fontsize=fs)
+plt.ylabel(r'$x[m]$', fontsize=fs)
 plt.subplot(212)
 plt.plot(t_static, x_track_static[:, 1], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 1], '--b')
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
-plt.xlabel(r'$t[\texttt{s}]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
+plt.xlabel(r'$t[s]$', fontsize=fs)
 if savefig:
     plt.savefig('imgs/youbot_static_vconst_always_sol.eps')
 
@@ -185,8 +183,8 @@ plt.plot(x0[0], x0[1], '.k')
 plt.plot(xg[0], xg[1], '.k')
 plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
 plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+plt.xlabel(r'$x[m]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
 plt.axis('scaled')
 plt.xlim(-0.75, 0.75)
 if savefig:
@@ -197,13 +195,13 @@ plt.subplot(211)
 plt.plot(t_dynamic, x_track_dynamic[:, 0], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 0], '--b')
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
-plt.ylabel(r'$x[\texttt{m}]$', fontsize=fs)
+plt.ylabel(r'$x[m]$', fontsize=fs)
 plt.subplot(212)
 plt.plot(t_dynamic, x_track_dynamic[:, 1], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 1], '--b')
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
-plt.xlabel(r'$t[\texttt{s}]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
+plt.xlabel(r'$t[s]$', fontsize=fs)
 if savefig:
     plt.savefig('imgs/youbot_dynamic_vconst_always_sol.eps')
 
@@ -217,8 +215,8 @@ if False:
         plt.plot(xg[0], xg[1], '.k')
         plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
         plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-        plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-        plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+        plt.xlabel(r'$x[m]$', fontsize=fs)
+        plt.ylabel(r'$y[m]$', fontsize=fs)
         plt.axis('scaled')
         plt.xlim(-0.75, 0.75)
         plt.savefig('frames/youbot_dynamic_vconst_always' + str(1000 + n) + '.png')
@@ -233,8 +231,8 @@ plt.plot(x0[0], x0[1], '.k')
 plt.plot(xg[0], xg[1], '.k')
 plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
 plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+plt.xlabel(r'$x[m]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
 plt.axis('scaled')
 plt.xlim(-0.75, 0.75)
 if savefig:
@@ -244,7 +242,7 @@ plt.figure()
 plt.subplot(211)
 plt.plot(t_static_temporal, x_track_static_temporal[:, 0], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 0], '--b')
-plt.ylabel(r'$x[\texttt{m}]$', fontsize=fs)
+plt.ylabel(r'$x[m]$', fontsize=fs)
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
 plt.axvline(x=t_presence[1], color='k', linestyle='--')
 plt.subplot(212)
@@ -252,8 +250,8 @@ plt.plot(t_static_temporal, x_track_static_temporal[:, 1], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 1], '--b')
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
 plt.axvline(x=t_presence[1], color='k', linestyle='--')
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
-plt.xlabel(r'$t[\texttt{s}]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
+plt.xlabel(r'$t[s]$', fontsize=fs)
 if savefig:
     plt.savefig('imgs/youbot_static_vconst_temporal_sol.eps')
 
@@ -266,8 +264,8 @@ plt.plot(x0[0], x0[1], '.k')
 plt.plot(xg[0], xg[1], '.k')
 plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
 plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+plt.xlabel(r'$x[m]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
 plt.axis('scaled')
 plt.xlim(-0.75, 0.75)
 if savefig:
@@ -283,8 +281,8 @@ if saveframe:
         plt.plot(xg[0], xg[1], '.k')
         plt.text(x0[0] + 0.1, x0[1], r'$ \mathbf{x}_0 $', fontsize=fs)
         plt.text(xg[0] + 0.1, xg[1], r'$ \mathbf{g} $', fontsize=fs)
-        plt.xlabel(r'$x[\texttt{m}]$', fontsize=fs)
-        plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
+        plt.xlabel(r'$x[m]$', fontsize=fs)
+        plt.ylabel(r'$y[m]$', fontsize=fs)
         plt.axis('scaled')
         plt.xlim(-0.75, 0.75)
         plt.savefig('frames/youbot_dynamic_vconst_temporal' + str(1000 + n) + '.png')
@@ -294,14 +292,14 @@ plt.figure()
 plt.subplot(211)
 plt.plot(t_dynamic_temporal, x_track_dynamic_temporal[:, 0], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 0], '--b')
-plt.ylabel(r'$x[\texttt{m}]$', fontsize=fs)
+plt.ylabel(r'$x[m]$', fontsize=fs)
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
 plt.axvline(x=t_presence[1], color='k', linestyle='--')
 plt.subplot(212)
 plt.plot(t_dynamic_temporal, x_track_dynamic_temporal[:, 1], 'r', linewidth=2)
 plt.plot(t_track_no_obst, x_track_no_obst[:, 1], '--b')
-plt.ylabel(r'$y[\texttt{m}]$', fontsize=fs)
-plt.xlabel(r'$t[\texttt{s}]$', fontsize=fs)
+plt.ylabel(r'$y[m]$', fontsize=fs)
+plt.xlabel(r'$t[s]$', fontsize=fs)
 plt.axvline(x=t_presence[0], color='k', linestyle='--')
 plt.axvline(x=t_presence[1], color='k', linestyle='--')
 if savefig:

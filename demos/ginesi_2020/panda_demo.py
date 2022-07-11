@@ -10,10 +10,8 @@ from dmp.obstacle_superquadric import Obstacle_Static, Obstacle_Dynamic
 # Plot stuff
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import rc
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],
-    'size':14})
-rc('text', usetex=True)
+import snsplot
+snsplot.set()
 
 savefig = False
 saveframes = False
@@ -220,9 +218,9 @@ ax.plot(goal_move_to_ring[0], goal_move_to_ring[1], goal_move_to_ring[2], '.k', 
 ax.text(0.3, 0.0, 0.5, r'$\mathbf{x}_0$')
 ax.text(0.5, 0.3, 0.1, r'$\mathbf{g}$')
 
-ax.set_xlabel(r'$x[\texttt{m}]$')
-ax.set_ylabel(r'$y[\texttt{m}]$')
-ax.set_zlabel(r'$z[\texttt{m}]$')
+ax.set_xlabel(r'$x[m]$')
+ax.set_ylabel(r'$y[m]$')
+ax.set_zlabel(r'$z[m]$')
 
 ax.view_init(elev=34, azim=16)
 
@@ -256,9 +254,9 @@ ax.plot(goal_move_to_ring[0], goal_move_to_ring[1], goal_move_to_ring[2], '.k', 
 ax.text(0.3, 0.0, 0.5, r'$\mathbf{x}_0$')
 ax.text(0.5, 0.3, 0.1, r'$\mathbf{g}$')
 
-ax.set_xlabel(r'$x[\texttt{m}]$')
-ax.set_ylabel(r'$y[\texttt{m}]$')
-ax.set_zlabel(r'$z[\texttt{m}]$')
+ax.set_xlabel(r'$x[m]$')
+ax.set_ylabel(r'$y[m]$')
+ax.set_zlabel(r'$z[m]$')
 
 ax.view_init(elev=34, azim=16)
 
@@ -293,9 +291,9 @@ if saveframes:
         ax.text(0.3, 0.0, 0.5, r'$\mathbf{x}_0$')
         ax.text(0.5, 0.3, 0.1, r'$\mathbf{g}$')
 
-        ax.set_xlabel(r'$x[\texttt{m}]$')
-        ax.set_ylabel(r'$y[\texttt{m}]$')
-        ax.set_zlabel(r'$z[\texttt{m}]$')
+        ax.set_xlabel(r'$x[m]$')
+        ax.set_ylabel(r'$y[m]$')
+        ax.set_zlabel(r'$z[m]$')
 
         ax.view_init(elev=34, azim=16)
         plt.savefig('frames/panda_dynamic_toring'+ str(1000 + n_fr) +'.png')
@@ -328,9 +326,9 @@ ax.plot(goal_move_to_peg[0], goal_move_to_peg[1], goal_move_to_peg[2], '.k', mar
 ax.text(0.5, 0.3, 0.1, r'$\mathbf{x}_0$')
 ax.text(0.5, -0.2, 0.3, r'$\mathbf{g}$')
 
-ax.set_xlabel(r'$x[\texttt{m}]$')
-ax.set_ylabel(r'$y[\texttt{m}]$')
-ax.set_zlabel(r'$z[\texttt{m}]$')
+ax.set_xlabel(r'$x[m]$')
+ax.set_ylabel(r'$y[m]$')
+ax.set_zlabel(r'$z[m]$')
 
 ax.view_init(elev=34, azim=16)
 
@@ -365,9 +363,9 @@ ax.plot(goal_move_to_peg[0], goal_move_to_peg[1], goal_move_to_peg[2], '.k', mar
 ax.text(0.5, 0.3, 0.1, r'$\mathbf{x}_0$')
 ax.text(0.5, -0.2, 0.3, r'$\mathbf{g}$')
 
-ax.set_xlabel(r'$x[\texttt{m}]$')
-ax.set_ylabel(r'$y[\texttt{m}]$')
-ax.set_zlabel(r'$z[\texttt{m}]$')
+ax.set_xlabel(r'$x[m]$')
+ax.set_ylabel(r'$y[m]$')
+ax.set_zlabel(r'$z[m]$')
 
 ax.view_init(elev=34, azim=16)
 
@@ -403,9 +401,9 @@ if saveframes:
         ax.text(0.5, 0.3, 0.1, r'$\mathbf{x}_0$')
         ax.text(0.5, -0.2, 0.3, r'$\mathbf{g}$')
 
-        ax.set_xlabel(r'$x[\texttt{m}]$')
-        ax.set_ylabel(r'$y[\texttt{m}]$')
-        ax.set_zlabel(r'$z[\texttt{m}]$')
+        ax.set_xlabel(r'$x[m]$')
+        ax.set_ylabel(r'$y[m]$')
+        ax.set_zlabel(r'$z[m]$')
 
         ax.view_init(elev=34, azim=16)
         plt.savefig('frames/panda_dynamic_topeg'+ str(1000+n_fr) +'.png')

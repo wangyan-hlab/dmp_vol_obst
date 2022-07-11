@@ -9,13 +9,8 @@ import matplotlib.pyplot as plt
 import pdb
 
 from mpl_toolkits.mplot3d import Axes3D
-import seaborn
-
-from matplotlib import rc
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-## for Palatino and other serif fonts use:
-#rc('font',**{'family':'serif','serif':['Palatino']})
-rc('text', usetex=True)
+import snsplot
+snsplot.set()
 
 from dmp.dmp_cartesian import DMPs_cartesian as dyn_mp
 from dmp.obstacle_superquadric import Obstacle_Static as obst
@@ -109,7 +104,8 @@ z_length = 1
 
 solid = mesh_parallelepid(x_length, y_length, z_length, 200)
 fig = plt.figure()
-ax = Axes3D(fig)
+ax = Axes3D(fig, auto_add_to_figure=False)
+fig.add_axes(ax)
 ax.scatter(solid[:, 0], solid[:, 1], solid[:, 2])
 ax.set_xlabel (r'$x$')
 ax.set_ylabel (r'$y$')

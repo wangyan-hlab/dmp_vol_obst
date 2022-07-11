@@ -7,10 +7,8 @@ from dmp.dmp import DMPs_cartesian as dmp_cart
 
 # Plot stuff
 import matplotlib.pyplot as plt
-from matplotlib import rc
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],
-    'size':'14'})
-rc('text', usetex=True)
+import snsplot
+snsplot.set()
 
 # Trajectory Generation
 t_span = np.linspace(0.0, np.pi, 500)

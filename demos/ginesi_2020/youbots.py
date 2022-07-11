@@ -4,12 +4,10 @@ Ginesi et al. 2020, fig 11
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import rc
-
+import snsplot
+snsplot.set()
 fs = 16
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],
-    'size':fs})
-rc('text', usetex=True)
+
 
 savefig = False
 
@@ -28,7 +26,7 @@ y_obst_2_m = - ((1 - (( ( x_obst_2 - c_2[0] ) / ax[0] ) ** 4.0)) ** (1.0/4.0) * 
 # ------------------------------------------------------------------------------------------- #
 #  Static - null weights
 # ------------------------------------------------------------------------------------------- #
-data_nullw_static = np.load('data/null_static.npy')
+data_nullw_static = np.load('../../data/null_static.npy')
 
 trj_1 = data_nullw_static[:, [1, 2]]
 trj_2 = data_nullw_static[:, [3, 4]]
@@ -55,8 +53,8 @@ plt.text(-1.7, 0.5, r'$\mathbf{x}_0$', color='r')
 plt.text(1.7, -1.5, r'$\mathbf{g}$', color='g')
 plt.text(1.7, -0.5, r'$\mathbf{g}$', color='r')
 plt.text(1.7, 0.5, r'$\mathbf{g}$', color='b')
-plt.xlabel(r'$x[ \texttt{m} ]$')
-plt.ylabel(r'$y[ \texttt{m} ]$')
+plt.xlabel(r'$x[ m ]$')
+plt.ylabel(r'$y[ m ]$')
 plt.axis('scaled')
 # plt.legend(loc='best')
 if savefig:
@@ -82,7 +80,7 @@ if savefig:
 # ------------------------------------------------------------------------------------------- #
 #  Dynamic - null weights
 # ------------------------------------------------------------------------------------------- #
-data_nullw_dynamic = np.load('data/null_dynamic.npy')
+data_nullw_dynamic = np.load('../../data/null_dynamic.npy')
 
 trj_1 = data_nullw_dynamic[:, [1, 2]]
 trj_2 = data_nullw_dynamic[:, [3, 4]]
@@ -109,8 +107,8 @@ plt.text(-1.7, 0.5, r'$\mathbf{x}_0$', color='r')
 plt.text(1.7, -1.5, r'$\mathbf{g}$', color='g')
 plt.text(1.7, -0.5, r'$\mathbf{g}$', color='r')
 plt.text(1.7, 0.5, r'$\mathbf{g}$', color='b')
-plt.xlabel(r'$x[ \texttt{m} ]$')
-plt.ylabel(r'$y[ \texttt{m} ]$')
+plt.xlabel(r'$x[ m ]$')
+plt.ylabel(r'$y[ m ]$')
 plt.axis('scaled')
 # plt.legend(loc='best')
 if savefig:
@@ -136,7 +134,7 @@ if savefig:
 # ------------------------------------------------------------------------------------------- #
 #  Static - constant velocity
 # ------------------------------------------------------------------------------------------- #
-data_const_static = np.load('data/const_static.npy')
+data_const_static = np.load('../../data/const_static.npy')
 
 trj_1 = data_const_static[:, [1, 2]]
 trj_2 = data_const_static[:, [3, 4]]
@@ -163,8 +161,8 @@ plt.text(-1.7, 0.5, r'$\mathbf{x}_0$', color='r')
 plt.text(1.7, -1.5, r'$\mathbf{g}$', color='g')
 plt.text(1.7, -0.5, r'$\mathbf{g}$', color='r')
 plt.text(1.7, 0.5, r'$\mathbf{g}$', color='b')
-plt.xlabel(r'$x[ \texttt{m} ]$')
-plt.ylabel(r'$y[ \texttt{m} ]$')
+plt.xlabel(r'$x[ m ]$')
+plt.ylabel(r'$y[ m ]$')
 plt.axis('scaled')
 # plt.legend(loc='best')
 if savefig:
@@ -190,7 +188,7 @@ if savefig:
 # ------------------------------------------------------------------------------------------- #
 #  Dynamic - constant velocity
 # ------------------------------------------------------------------------------------------- #
-data_const_dynamic = np.load('data/const_dynamic.npy')
+data_const_dynamic = np.load('../../data/const_dynamic.npy')
 
 trj_1 = data_const_dynamic[:, [1, 2]]
 trj_2 = data_const_dynamic[:, [3, 4]]
@@ -217,8 +215,8 @@ plt.text(-1.7, 0.5, r'$\mathbf{x}_0$', color='r')
 plt.text(1.7, -1.5, r'$\mathbf{g}$', color='g')
 plt.text(1.7, -0.5, r'$\mathbf{g}$', color='r')
 plt.text(1.7, 0.5, r'$\mathbf{g}$', color='b')
-plt.xlabel(r'$x[ \texttt{m} ]$')
-plt.ylabel(r'$y[ \texttt{m} ]$')
+plt.xlabel(r'$x[ m ]$')
+plt.ylabel(r'$y[ m ]$')
 plt.axis('scaled')
 # plt.legend(loc='best')
 if savefig:

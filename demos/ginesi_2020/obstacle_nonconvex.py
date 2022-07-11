@@ -4,10 +4,8 @@ Ginesi et al. 2020, fig 9
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import rc
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],
-    'size':'14'})
-rc('text', usetex=True)
+import snsplot
+snsplot.set()
 
 from dmp.dmp import DMPs_cartesian
 from dmp.obstacle_superquadric import Obstacle_Dynamic as sq_dyn
